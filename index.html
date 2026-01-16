@@ -6,6 +6,9 @@
     <title>Santa Marta - Destino Turístico Único</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/auth.js"></script>
+    <script src="js/perfil-admin.js"></script>
+    <script src="js/destinos.js"></script>
 </head>
 <body>
     <!-- Navegación -->
@@ -22,6 +25,22 @@
                 <li><a href="#galeria">Galería</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
+            <div class="auth-buttons">
+                <button class="btn-auth-login" onclick="abrirLoginModal()" id="btnLogin">Iniciar Sesión</button>
+                <button class="btn-auth-register" onclick="abrirRegistroModal()" id="btnRegister">Registrarse</button>
+                <div class="user-menu" id="userMenu" style="display: none;">
+                    <button class="btn-user-toggle" id="btnUserToggle">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="userName"></span>
+                    </button>
+                    <div class="user-dropdown">
+                        <a href="#" onclick="abrirPerfilUsuario(); return false;">👤 Mi Perfil</a>
+                        <a href="#" id="menuAdmin" style="display: none;" onclick="abrirPanelAdmin(); return false;">⚙️ Panel Admin</a>
+                        <hr>
+                        <a href="#" onclick="auth.logout(); location.reload(); return false;">🚪 Cerrar Sesión</a>
+                    </div>
+                </div>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -74,58 +93,58 @@
         <div class="container">
             <h2>Destinos Principales</h2>
             <div class="destinos-grid">
-                <div class="destino-card" data-destino="tayrona">
+                <div class="destino-card">
                     <div class="destino-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                         <i class="fas fa-trees"></i>
                     </div>
-                    <h3>Parque Tayrona</h3>
+                    <h3>Parque Nacional Tayrona</h3>
                     <p>Conecta la selva tropical con playas vírgenes. Un paraíso natural con senderos increíbles y fauna exótica.</p>
-                    <a href="#" class="btn btn-secondary">Más Información</a>
+                    <button class="btn btn-secondary" onclick="abrirDetalleDestino('1')">Más Información</button>
                 </div>
 
-                <div class="destino-card" data-destino="ciudad-perdida">
+                <div class="destino-card">
                     <div class="destino-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
                         <i class="fas fa-landmark"></i>
                     </div>
                     <h3>Ciudad Perdida</h3>
                     <p>Recorre una de las caminatas más fascinantes del mundo. Descubre ruinas precolombinas entre la selva.</p>
-                    <a href="#" class="btn btn-secondary">Más Información</a>
+                    <button class="btn btn-secondary" onclick="abrirDetalleDestino('2')">Más Información</button>
                 </div>
 
-                <div class="destino-card" data-destino="playas">
+                <div class="destino-card">
                     <div class="destino-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
                         <i class="fas fa-water"></i>
                     </div>
                     <h3>Playas Paradisíacas</h3>
                     <p>Arenas blancas y aguas cristalinas. Desde playas tranquilas hasta paraísos submarinos para buceo.</p>
-                    <a href="#" class="btn btn-secondary">Más Información</a>
+                    <button class="btn btn-secondary" onclick="abrirDetalleDestino('3')">Más Información</button>
                 </div>
 
-                <div class="destino-card" data-destino="sierra-nevada">
+                <div class="destino-card">
                     <div class="destino-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
                         <i class="fas fa-mountain"></i>
                     </div>
                     <h3>Sierra Nevada</h3>
                     <p>Montañas nevadas con fauna y flora única. Un ecosistema sagrado para las comunidades indígenas.</p>
-                    <a href="#" class="btn btn-secondary">Más Información</a>
+                    <button class="btn btn-secondary" onclick="abrirDetalleDestino('4')">Más Información</button>
                 </div>
 
-                <div class="destino-card" data-destino="centro-historico">
+                <div class="destino-card">
                     <div class="destino-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
                         <i class="fas fa-building"></i>
                     </div>
                     <h3>Centro Histórico</h3>
                     <p>Arquitectura colonial, plazas vibrantes y cultura viva. Explora la historia en cada calle.</p>
-                    <a href="#" class="btn btn-secondary">Más Información</a>
+                    <button class="btn btn-secondary" onclick="abrirDetalleDestino('5')">Más Información</button>
                 </div>
 
-                <div class="destino-card" data-destino="buceo">
+                <div class="destino-card">
                     <div class="destino-image" style="background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%);">
                         <i class="fas fa-person-snorkeling"></i>
                     </div>
                     <h3>Buceo Submarino</h3>
                     <p>Explora arrecifes de coral y vida marina. Islas como Tayrona y Rosario con aguas cristalinas.</p>
-                    <a href="#" class="btn btn-secondary">Más Información</a>
+                    <button class="btn btn-secondary" onclick="abrirDetalleDestino('6')">Más Información</button>
                 </div>
             </div>
         </div>
@@ -290,5 +309,34 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+        // Inicializar autenticación al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Actualizar UI de autenticación
+            setTimeout(actualizarUIAutenticacion, 500);
+            
+            // Configurar event listener para el toggle de menú de usuario
+            const btnUserToggle = document.getElementById('btnUserToggle');
+            if (btnUserToggle) {
+                btnUserToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const dropdown = this.parentElement.querySelector('.user-dropdown');
+                    if (dropdown) {
+                        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                    }
+                });
+            }
+            
+            // Cerrar dropdown al hacer click fuera
+            document.addEventListener('click', function(e) {
+                const userMenus = document.querySelectorAll('.user-dropdown');
+                userMenus.forEach(menu => {
+                    if (!menu.parentElement.contains(e.target)) {
+                        menu.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
