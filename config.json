@@ -1,0 +1,147 @@
+{
+  "name": "Santa Marta - Página Turística",
+  "version": "1.0.0",
+  "description": "Página web moderna de turismo para Santa Marta, Colombia",
+  "author": "Tu Nombre",
+  "keywords": [
+    "turismo",
+    "santa marta",
+    "caribe",
+    "colombia",
+    "viajes"
+  ],
+  "theme": {
+    "primary": "#FF6B35",
+    "secondary": "#004E89",
+    "accent": "#1B9CFC",
+    "light_bg": "#F7F9FC",
+    "dark_bg": "#1A1A2E",
+    "text_dark": "#2D3436",
+    "text_light": "#636E72"
+  },
+  "destinos": [
+    {
+      "id": "tayrona",
+      "nombre": "Parque Tayrona",
+      "descripcion": "Uno de los parques más bellos del mundo",
+      "ubicacion": "Santa Marta, Magdalena",
+      "entrada": "COP $57,000",
+      "horario": "8:00 AM - 4:00 PM",
+      "actividades": [
+        "Senderismo",
+        "Playa",
+        "Naturaleza",
+        "Fotografía"
+      ]
+    },
+    {
+      "id": "ciudad-perdida",
+      "nombre": "Ciudad Perdida",
+      "descripcion": "Recorre una de las caminatas más fascinantes del mundo",
+      "ubicacion": "Sierra Nevada",
+      "duracion": "4 días",
+      "dificultad": "Alta",
+      "actividades": [
+        "Trekking",
+        "Arqueología",
+        "Naturaleza"
+      ]
+    },
+    {
+      "id": "playas",
+      "nombre": "Playas Paradisíacas",
+      "descripcion": "Arenas blancas y aguas cristalinas",
+      "playa_recomendada": "Playa Brava, Cinto, Neguanje",
+      "entrada": "Libre",
+      "actividades": [
+        "Natación",
+        "Buceo",
+        "Relajación",
+        "Fotografía"
+      ]
+    },
+    {
+      "id": "sierra-nevada",
+      "nombre": "Sierra Nevada",
+      "descripcion": "Montañas nevadas con fauna y flora única",
+      "altura": "5,730 m",
+      "entrada": "Con guía autorizado",
+      "actividades": [
+        "Montañismo",
+        "Trekking",
+        "Naturaleza"
+      ]
+    },
+    {
+      "id": "centro-historico",
+      "nombre": "Centro Histórico",
+      "descripcion": "Arquitectura colonial y cultura viva",
+      "ubicacion": "Centro de Santa Marta",
+      "entrada": "Libre",
+      "horario": "9:00 AM - 6:00 PM",
+      "actividades": [
+        "Cultura",
+        "Historia",
+        "Gastronomía",
+        "Compras"
+      ]
+    },
+    {
+      "id": "buceo",
+      "nombre": "Buceo Submarino",
+      "descripcion": "Explora arrecifes de coral y vida marina",
+      "ubicacion": "Costas de Santa Marta",
+      "entrada": "Desde COP $150,000",
+      "certificacion": "Opcional",
+      "actividades": [
+        "Buceo",
+        "Snorkel",
+        "Vida marina"
+      ]
+    }
+  ],
+  "actividades": [
+    {
+      "nombre": "Senderismo",
+      "icono": "hiking",
+      "descripcion": "Rutas para todos los niveles desde playas hasta montañas nevadas"
+    },
+    {
+      "nombre": "Gastronomía Local",
+      "icono": "utensils",
+      "descripcion": "Sabores del caribe con frescos ingredientes y tradiciones culinarias"
+    },
+    {
+      "nombre": "Fotografía",
+      "icono": "camera",
+      "descripcion": "Captura momentos inolvidables en paisajes de ensueño"
+    },
+    {
+      "nombre": "Deportes Acuáticos",
+      "icono": "kayaking",
+      "descripcion": "Kayak, paddleboard y snorkel en aguas tranquilas"
+    },
+    {
+      "nombre": "Experiencias Culturales",
+      "icono": "people-group",
+      "descripcion": "Convive con comunidades indígenas y aprende su cosmovisión"
+    },
+    {
+      "nombre": "Tours Nocturnos",
+      "icono": "moon",
+      "descripcion": "Observa la vida nocturna de la selva y playas bajo las estrellas"
+    }
+  ],
+  "contacto": {
+    "email": "info@santamartaours.com",
+    "telefono": "+57 5 421 XXXX",
+    "ubicacion": "Santa Marta, Magdalena, Colombia",
+    "horarios": "Lunes a Domingo: 8:00 AM - 8:00 PM"
+  },
+  "redes_sociales": {
+    "facebook": "https://facebook.com/santamartaours",
+    "instagram": "https://instagram.com/santamartaours",
+    "twitter": "https://twitter.com/santamartaours",
+    "youtube": "https://youtube.com/santamartaours"
+  }
+}
