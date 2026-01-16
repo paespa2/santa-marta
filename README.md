@@ -2,20 +2,42 @@
 
 Bienvenido a Santa Marta Tours, una página web moderna y responsiva dedicada a mostrar los mejores destinos y experiencias turísticas de Santa Marta, Colombia.
 
+**🎉 Versión 2.0: Panel Administrativo Completo Implementado**
+
 ## 📁 Estructura del Proyecto
 
 ```
 santa marta bombastic/
 │
-├── index.html              # Página principal HTML
+├── index.html                          # Página principal HTML
 ├── css/
-│   └── styles.css         # Estilos CSS modernos
+│   └── styles.css                     # Estilos CSS modernos
 ├── js/
-│   └── script.js          # JavaScript interactivo
-└── README.md              # Este archivo
+│   ├── auth.js                        # Sistema de autenticación
+│   ├── perfil-admin.js                # Gestión de perfiles
+│   ├── destinos.js                    # Sistema de destinos
+│   └── admin-dashboard.js             # Panel admin mejorado (NUEVO)
+│
+├── DOCUMENTACIÓN/
+│   ├── README.md                      # Este archivo
+│   ├── GUIA_ADMIN_DASHBOARD.md       # Manual del panel admin
+│   ├── EJEMPLOS_ADMIN_DASHBOARD.md   # Ejemplos de uso
+│   ├── GUIA_PRUEBAS_ADMIN.md         # Guía de testing
+│   └── RESUMEN_PANEL_ADMIN_v2.md     # Resumen de mejoras
+│
+└── git/
+    └── Conectado a GitHub (paespa2/santa-marta)
 ```
 
 ## ✨ Características Principales
+
+### 🔐 Sistema de Autenticación (v1.0)
+- ✅ Registro de usuarios
+- ✅ Login con email y contraseña
+- ✅ Perfil de usuario editable
+- ✅ Cambio de contraseña
+- ✅ Roles: Admin y Cliente
+- ✅ Logout seguro
 
 ### 🎨 Diseño Moderno
 - Interfaz moderna y atractiva con gradientes y animaciones
@@ -37,6 +59,18 @@ santa marta bombastic/
 - Formulario de contacto funcional
 - Efectos parallax en hero section
 
+### 📊 Panel Administrativo v2.0 (NUEVO)
+- ✅ Dashboard con 5 estadísticas clave
+- ✅ Gestión completa de usuarios (CRUD)
+- ✅ Gestión de destinos turísticos
+- ✅ Gestión de paquetes turísticos
+- ✅ Registro de actividades (auditoría)
+- ✅ Configuración centralizada del sitio
+- ✅ Búsqueda y filtrado de usuarios
+- ✅ Interfaz profesional con sidebar
+- ✅ Formularios modales completos
+- ✅ Diseño responsive (mobile-friendly)
+
 ### 📍 Secciones Incluidas
 
 1. **Navegación**: Barra fija con logo y menú responsivo
@@ -49,19 +83,61 @@ santa marta bombastic/
 8. **Contacto**: Formulario de contacto y información de ubicación
 9. **Footer**: Información de copyright y redes sociales
 
-## 🚀 Cómo Usar
+## 🚀 Cómo Iniciar el Proyecto
 
-### 1. Abrir la Página
-- Simplemente abre `index.html` en tu navegador web preferido
+### Opción 1: Python HTTP Server (Recomendado)
 
-### 2. Navegar
-- Usa el menú de navegación para ir a diferentes secciones
-- Haz click en los botones para desplazarse suavemente
+```bash
+cd "c:\Users\ppaes\OneDrive\Escritorio\santa marta bombastic"
+python -m http.server 8000
+```
 
-### 3. Interacción
-- Hover sobre las tarjetas de destinos para ver efectos
-- Haz click en las imágenes de la galería para verlas en grande
-- Completa el formulario de contacto para enviar un mensaje
+Luego abre: **http://localhost:8000**
+
+### Opción 2: Abrir Archivo Directo
+
+```bash
+Simplemente haz doble clic en index.html
+O arrastra index.html a tu navegador
+```
+
+## 👤 Cuentas de Prueba
+
+### Admin (Acceso completo)
+```
+Email:    admin@santamarta.com
+Password: admin123
+Rol:      Administrador
+```
+
+### Cliente (Usuario regular)
+```
+Email:    juan@example.com
+Password: usuario123
+Rol:      Cliente
+```
+
+## 📖 Guía de Uso Rápida
+
+### Para Clientes
+1. Inicia sesión con juan@example.com
+2. Navega por destinos y paquetes
+3. Edita tu perfil si es necesario
+
+### Para Administradores
+1. Inicia sesión con admin@santamarta.com
+2. Haz clic en el menú de usuario
+3. Selecciona "⚙️ Panel Admin"
+4. Acceso a: Dashboard, Usuarios, Destinos, Paquetes, Actividades, Configuración
+
+## 📚 Documentación Disponible
+
+| Archivo | Descripción |
+|---------|------------|
+| **GUIA_ADMIN_DASHBOARD.md** | Manual completo del panel admin |
+| **EJEMPLOS_ADMIN_DASHBOARD.md** | 7 escenarios prácticos de uso |
+| **GUIA_PRUEBAS_ADMIN.md** | Guía detallada de testing |
+| **RESUMEN_PANEL_ADMIN_v2.md** | Resumen técnico de mejoras |
 
 ## 🎨 Paleta de Colores
 
