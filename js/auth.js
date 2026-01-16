@@ -153,41 +153,36 @@ const auth = new SistemaAutenticacion();
 
 // Actualizar UI cuando cambia el estado de autenticación
 function actualizarUIAutenticacion() {
-    const navMenu = document.querySelector('.nav-menu');
-    const botonAuth = document.querySelector('.btn-auth');
-    
-    if (!navMenu) return;
-    
-    // Limpiar botones de auth anteriores
-    const botonesPrevios = navMenu.querySelectorAll('.auth-buttons');
-    botonesPrevios.forEach(btn => btn.remove());
+    const btnLogin = document.getElementById('btnLogin');
+    const btnRegister = document.getElementById('btnRegister');
+    const userMenu = document.getElementById('userMenu');
+    const menuAdmin = document.getElementById('menuAdmin');
+    const userName = document.getElementById('userName');
     
     if (auth.estaAutenticado()) {
-        // Usuario autenticado - mostrar perfil y logout
-        const authHTML = `
-            <li class="auth-buttons">
-                <div class="usuario-menu">
-                    <img src="${auth.usuarioActual.avatar}" alt="Usuario" class="avatar-mini">
-                    <span>${auth.usuarioActual.nombre}</span>
-                    <div class="dropdown-menu">
-                        <a href="#" onclick="abrirPerfilUsuario(); return false;">👤 Mi Perfil</a>
-                        ${auth.esAdmin() ? '<a href="#" onclick="abrirPanelAdmin(); return false;">⚙️ Panel Admin</a>' : ''}
-                        <hr style="margin: 5px 0; border: none; border-top: 1px solid #ddd;">
-                        <a href="#" onclick="logout(); return false;">🚪 Cerrar Sesión</a>
-                    </div>
-                </div>
-            </li>
-        `;
-        navMenu.insertAdjacentHTML('beforeend', authHTML);
+        // Ocultar botones de login/registro
+        if (btnLogin) btnLogin.style.display = 'none';
+        if (btnRegister) btnRegister.style.display = 'none';
+        
+        // Mostrar menú de usuario
+        if (userMenu) userMenu.style.display = 'block';
+        
+        // Mostrar/Ocultar opción de admin según rol
+        if (menuAdmin) {
+            menuAdmin.style.display = auth.esAdmin() ? 'block' : 'none';
+        }
+        
+        // Actualizar nombre de usuario
+        if (userName) {
+            userName.textContent = auth.usuarioActual.nombre;
+        }
     } else {
-        // Usuario no autenticado - mostrar login/registro
-        const authHTML = `
-            <li class="auth-buttons">
-                <button onclick="abrirLoginModal();" class="btn btn-secondary btn-small">Iniciar Sesión</button>
-                <button onclick="abrirRegistroModal();" class="btn btn-primary btn-small">Registrarse</button>
-            </li>
-        `;
-        navMenu.insertAdjacentHTML('beforeend', authHTML);
+        // Mostrar botones de login/registro
+        if (btnLogin) btnLogin.style.display = 'inline-block';
+        if (btnRegister) btnRegister.style.display = 'inline-block';
+        
+        // Ocultar menú de usuario
+        if (userMenu) userMenu.style.display = 'none';
     }
     
     // Agregar estilos CSS si no existen
