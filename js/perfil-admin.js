@@ -162,6 +162,11 @@ function guardarNuevaPassword(event) {
 // ============================================
 
 function abrirPanelAdmin() {
+    // Usar el nuevo panel mejorado con más funcionalidades
+    abrirPanelAdminMejorado();
+}
+
+function abrirPanelAdminAntiguo() {
     if (!auth.esAdmin()) {
         alert('No tienes permisos de administrador');
         return;
