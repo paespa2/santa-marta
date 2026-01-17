@@ -6,9 +6,9 @@
     <title>Santa Marta - Destino Turístico Único</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/destinos.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/perfil-admin.js"></script>
-    <script src="js/destinos.js"></script>
     <script src="js/admin-dashboard.js"></script>
 </head>
 <body>
@@ -94,59 +94,7 @@
         <div class="container">
             <h2>Destinos Principales</h2>
             <div class="destinos-grid">
-                <div class="destino-card">
-                    <div class="destino-image destino-1">
-                        <i class="fas fa-trees"></i>
-                    </div>
-                    <h3>Parque Nacional Tayrona</h3>
-                    <p>Conecta la selva tropical con playas vírgenes. Un paraíso natural con senderos increíbles y fauna exótica.</p>
-                    <button class="btn btn-secondary" onclick="abrirDetalleDestino('1')">Más Información</button>
-                </div>
-
-                <div class="destino-card">
-                    <div class="destino-image destino-2">
-                        <i class="fas fa-landmark"></i>
-                    </div>
-                    <h3>Ciudad Perdida</h3>
-                    <p>Recorre una de las caminatas más fascinantes del mundo. Descubre ruinas precolombinas entre la selva.</p>
-                    <button class="btn btn-secondary" onclick="abrirDetalleDestino('2')">Más Información</button>
-                </div>
-
-                <div class="destino-card">
-                    <div class="destino-image destino-3">
-                        <i class="fas fa-water"></i>
-                    </div>
-                    <h3>Playas Paradisíacas</h3>
-                    <p>Arenas blancas y aguas cristalinas. Desde playas tranquilas hasta paraísos submarinos para buceo.</p>
-                    <button class="btn btn-secondary" onclick="abrirDetalleDestino('3')">Más Información</button>
-                </div>
-
-                <div class="destino-card">
-                    <div class="destino-image destino-4">
-                        <i class="fas fa-mountain"></i>
-                    </div>
-                    <h3>Sierra Nevada</h3>
-                    <p>Montañas nevadas con fauna y flora única. Un ecosistema sagrado para las comunidades indígenas.</p>
-                    <button class="btn btn-secondary" onclick="abrirDetalleDestino('4')">Más Información</button>
-                </div>
-
-                <div class="destino-card">
-                    <div class="destino-image destino-5">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Centro Histórico</h3>
-                    <p>Arquitectura colonial, plazas vibrantes y cultura viva. Explora la historia en cada calle.</p>
-                    <button class="btn btn-secondary" onclick="abrirDetalleDestino('5')">Más Información</button>
-                </div>
-
-                <div class="destino-card">
-                    <div class="destino-image destino-6">
-                        <i class="fas fa-person-snorkeling"></i>
-                    </div>
-                    <h3>Buceo Submarino</h3>
-                    <p>Explora arrecifes de coral y vida marina. Islas como Tayrona y Rosario con aguas cristalinas.</p>
-                    <button class="btn btn-secondary" onclick="abrirDetalleDestino('6')">Más Información</button>
-                </div>
+                <!-- Los destinos activos se cargarán aquí dinámicamente -->
             </div>
         </div>
     </section>
@@ -208,37 +156,37 @@
             <h2>Galería de Experiencias</h2>
             <div class="galeria-grid">
                 <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300?text=Playa+Dorada" alt="Playa Dorada">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23FF6B35' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='18' fill='white' text-anchor='middle' dy='.3em'%3EPlayas%20V%C3%ADrgenes%3C/text%3E%3C/svg%3E" alt="Playa Dorada">
                     <div class="galeria-overlay">
                         <p>Playas Vírgenes</p>
                     </div>
                 </div>
                 <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300?text=Sierra+Nevada" alt="Sierra Nevada">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23004E89' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='18' fill='white' text-anchor='middle' dy='.3em'%3ESierra%20Nevada%3C/text%3E%3C/svg%3E" alt="Sierra Nevada">
                     <div class="galeria-overlay">
                         <p>Sierra Nevada</p>
                     </div>
                 </div>
                 <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300?text=Ciudad+Perdida" alt="Ciudad Perdida">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%231B9CFC' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='18' fill='white' text-anchor='middle' dy='.3em'%3ECiudad%20Perdida%3C/text%3E%3C/svg%3E" alt="Ciudad Perdida">
                     <div class="galeria-overlay">
                         <p>Ciudad Perdida</p>
                     </div>
                 </div>
                 <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300?text=Fauna+Local" alt="Fauna Local">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%2327AE60' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='18' fill='white' text-anchor='middle' dy='.3em'%3EFauna%20Exótica%3C/text%3E%3C/svg%3E" alt="Fauna Local">
                     <div class="galeria-overlay">
                         <p>Fauna Exótica</p>
                     </div>
                 </div>
                 <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300?text=Atardecer" alt="Atardecer">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23F39C12' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='18' fill='white' text-anchor='middle' dy='.3em'%3EAtardeceres%20M%C3%A1gicos%3C/text%3E%3C/svg%3E" alt="Atardecer">
                     <div class="galeria-overlay">
                         <p>Atardeceres Mágicos</p>
                     </div>
                 </div>
                 <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300?text=Gastronomia" alt="Gastronomía">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23E74C3C' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='18' fill='white' text-anchor='middle' dy='.3em'%3EExperiencias%20Culinarias%3C/text%3E%3C/svg%3E" alt="Gastronomía">
                     <div class="galeria-overlay">
                         <p>Experiencias Culinarias</p>
                     </div>

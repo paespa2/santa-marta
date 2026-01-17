@@ -20,18 +20,19 @@ class GestorDestinos {
                     nombre: 'Parque Nacional Tayrona',
                     descripcion: 'Uno de los parques más bellos del mundo, donde la selva tropical se encuentra con el mar Caribe.',
                     descripcionLarga: 'El Parque Nacional Natural Tayrona es una reserva natural ubicada en el departamento del Magdalena en Colombia, en el norte de América del Sur. El parque cubre 15,000 hectáreas y combina la selva tropical con playas de arena blanca. Es un destino ideal para senderismo, camping y disfrutar de la naturaleza.',
-                    imagen: 'https://via.placeholder.com/800x500?text=Parque+Tayrona',
+                    imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500'%3E%3Crect fill='%23FF6B35' width='800' height='500'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3EParque%20Tayrona%3C/text%3E%3C/svg%3E",
                     imagenes: [
-                        'https://via.placeholder.com/600x400?text=Tayrona+1',
-                        'https://via.placeholder.com/600x400?text=Tayrona+2',
-                        'https://via.placeholder.com/600x400?text=Tayrona+3'
+                        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%23FF6B35' width='600' height='400'/%3E%3C/svg%3E",
+                        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%23FF8C42' width='600' height='400'/%3E%3C/svg%3E",
+                        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%23FFB366' width='600' height='400'/%3E%3C/svg%3E"
                     ],
                     ubicacion: 'Santa Marta, Magdalena',
                     entrada: 'COP $57,000',
                     horario: '8:00 AM - 4:00 PM',
                     atractivos: ['Senderismo', 'Playa virgen', 'Piscina natural', 'Fauna exótica'],
                     puntuacion: 4.8,
-                    resenas: 234
+                    resenas: 234,
+                    activo: true
                 },
                 {
                     id: '2',
@@ -49,7 +50,8 @@ class GestorDestinos {
                     dificultad: 'Alta',
                     atractivos: ['Trekking', 'Arqueología', 'Selva', 'Cascadas'],
                     puntuacion: 4.9,
-                    resenas: 189
+                    resenas: 189,
+                    activo: true
                 },
                 {
                     id: '3',
@@ -66,7 +68,8 @@ class GestorDestinos {
                     entrada: 'Libre',
                     atractivos: ['Natación', 'Buceo', 'Relajación', 'Fotografía'],
                     puntuacion: 4.7,
-                    resenas: 456
+                    resenas: 456,
+                    activo: true
                 },
                 {
                     id: '4',
@@ -83,7 +86,8 @@ class GestorDestinos {
                     dificultad: 'Muy Alta',
                     atractivos: ['Montañismo', 'Nieve', 'Paisajes', 'Cultura indígena'],
                     puntuacion: 4.6,
-                    resenas: 98
+                    resenas: 98,
+                    activo: true
                 },
                 {
                     id: '5',
@@ -101,7 +105,8 @@ class GestorDestinos {
                     horario: '24/7',
                     atractivos: ['Cultura', 'Historia', 'Gastronomía', 'Arquitectura'],
                     puntuacion: 4.5,
-                    resenas: 312
+                    resenas: 312,
+                    activo: true
                 },
                 {
                     id: '6',
@@ -119,7 +124,8 @@ class GestorDestinos {
                     certificacion: 'Opcional',
                     atractivos: ['Buceo', 'Snorkel', 'Vida marina', 'Arrecifes'],
                     puntuacion: 4.8,
-                    resenas: 267
+                    resenas: 267,
+                    activo: true
                 }
             ];
             
@@ -181,6 +187,18 @@ class GestorDestinos {
     obtenerPaquetesPorDestino(destinoId) {
         const paquetes = JSON.parse(localStorage.getItem(this.paquetesKey) || '[]');
         return paquetes.filter(p => p.destinoId === destinoId);
+    }
+
+    // Actualizar estado activo/inactivo de un destino
+    actualizarEstadoDestino(id, activo) {
+        const destinos = this.obtenerTodosDestinos();
+        const index = destinos.findIndex(d => d.id === id);
+        if (index !== -1) {
+            destinos[index].activo = activo;
+            localStorage.setItem(this.destinosKey, JSON.stringify(destinos));
+            return { exito: true, destino: destinos[index] };
+        }
+        return { exito: false, mensaje: 'Destino no encontrado' };
     }
 }
 

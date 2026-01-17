@@ -486,22 +486,26 @@ function agregarEstilosAdmin() {
         }
         
         .modal-lg {
-            max-width: 600px;
+            max-width: 700px;
         }
         
         textarea {
             font-family: inherit;
-            padding: 10px;
-            border: 2px solid #E8E8E8;
+            padding: 12px 14px;
+            border: 2px solid #e8e8e8;
             border-radius: 8px;
             width: 100%;
             resize: vertical;
+            font-size: 0.95rem;
+            color: #2a2a2a;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         textarea:focus {
             outline: none;
-            border-color: #FF6B35;
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+            border-color: #0D7377;
+            box-shadow: 0 0 0 3px rgba(13, 115, 119, 0.1);
+            background: #fdfbf8;
         }
     `;
     document.head.appendChild(estilos);

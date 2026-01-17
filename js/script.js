@@ -279,6 +279,9 @@ document.addEventListener('DOMContentLoaded', function() {
             item.style.color = 'var(--primary-color)';
         }
     });
+    
+    // Renderizar destinos activos en la página principal
+    setTimeout(() => renderizarDestinosPublicos(), 500);
 });
 
 // ============================================
@@ -361,3 +364,39 @@ window.addEventListener('load', preloadImages);
 // ============================================
 
 window.destinos = destinos;
+
+// ============================================
+// CREAR IMAGEN PLACEHOLDER SVG
+// ============================================
+
+function crearPlaceholderSVG(texto, ancho = 400, alto = 300) {
+    const colors = ['#FF6B35', '#004E89', '#1B9CFC', '#27AE60', '#F39C12'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    
+    return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='${ancho}' height='${alto}'%3E%3Crect fill='${encodeURIComponent(color)}' width='${ancho}' height='${alto}'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='18' fill='white' text-anchor='middle' dy='.3em'%3E${encodeURIComponent(texto)}%3C/text%3E%3C/svg%3E`;
+}
+
+// ============================================
+// RENDERIZAR DESTINOS EN LA PÁGINA PRINCIPAL
+// ============================================
+
+function renderizarDestinosPublicos() {
+    const destinosContainer = document.querySelector('.destinos-grid');
+    if (!destinosContainer) return;
+
+    const todosDestinos = gestorDestinos.obtenerTodosDestinos();
+    const destinosActivos = todosDestinos.filter(destino => destino.activo);
+
+    destinosContainer.innerHTML = destinosActivos.map(destino => `
+        <div class="destino-card">
+            <div class="destino-image destino-${destino.id}">
+                <img src="${crearPlaceholderSVG(destino.nombre, 400, 300)}" alt="${destino.nombre}">
+            </div>
+            <div class="destino-content">
+                <h3>${destino.nombre}</h3>
+                <p>${destino.descripcion}</p>
+                <button class="btn btn-secondary" onclick="abrirDetalleDestino('${destino.id}')">Ver Más</button>
+            </div>
+        </div>
+    `).join('');
+}

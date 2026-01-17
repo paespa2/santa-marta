@@ -1,18 +1,36 @@
 /* ============================================
    VARIABLES GLOBALES Y RESET
+   Paleta Minimalista Santa Marta
    ============================================ */
 
 :root {
-    --primary-color: #FF6B35;
-    --secondary-color: #004E89;
-    --accent-color: #1B9CFC;
-    --light-bg: #F7F9FC;
-    --dark-bg: #1A1A2E;
-    --text-dark: #2D3436;
-    --text-light: #636E72;
+    /* Colores Principales - Santa Marta */
+    --primary-color: #0D7377;        /* Verde Agua/Mar */
+    --secondary-color: #14919B;      /* Turquesa */
+    --accent-color: #F4D35E;         /* Dorado Arena */
+    --warm-accent: #EE964B;          /* Naranja Suave */
+    
+    /* Fondos */
+    --light-bg: #F9F7F4;             /* Crema Minimalista */
+    --darker-light: #F0EFEA;         /* Gris Arena */
+    --dark-bg: #2C2C2C;              /* Gris Oscuro */
+    
+    /* Texto */
+    --text-dark: #1A1A1A;            /* Negro Suave */
+    --text-light: #666666;           /* Gris Medio */
+    --text-lighter: #999999;         /* Gris Claro */
+    
+    /* Utilidad */
     --white: #FFFFFF;
-    --border-radius: 12px;
+    --success: #4CAF50;              /* Verde Éxito */
+    --danger: #E74C3C;               /* Rojo Peligro */
+    --warning: #F39C12;              /* Naranja Advertencia */
+    
+    /* Estilos */
+    --border-radius: 8px;            /* Más minimalista */
     --transition: all 0.3s ease;
+    --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -44,31 +62,32 @@ body {
 
 .btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 12px 28px;
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     transition: var(--transition);
     text-decoration: none;
     text-align: center;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), #FF8C42);
+    background: var(--primary-color);
     color: var(--white);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+    background: var(--secondary-color);
+    transform: none;
+    box-shadow: var(--shadow-medium);
 }
 
 .btn-secondary {
     background: transparent;
     color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    border: 1px solid var(--primary-color);
 }
 
 .btn-secondary:hover {
@@ -161,13 +180,13 @@ body {
 }
 
 /* ============================================
-   HERO SECTION
+   HERO SECTION - MINIMALISTA
    ============================================ */
 
 .hero {
     margin-top: 70px;
     min-height: calc(100vh - 70px);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0D7377 0%, #14919B 50%, #F9F7F4 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,13 +203,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse"><circle cx="100" cy="100" r="50" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1200" height="600" fill="url(%23pattern)"/></svg>');
-    animation: moveBackground 20s linear infinite;
-}
-
-@keyframes moveBackground {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(200px); }
+    background: none;
 }
 
 .hero-overlay {
@@ -199,7 +212,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .hero-content {
@@ -220,20 +233,23 @@ body {
 }
 
 .hero-title {
-    font-size: 4rem;
-    font-weight: 800;
+    font-size: 3.5rem;
+    font-weight: 700;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: none;
+    letter-spacing: -1px;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 40px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
     opacity: 0.95;
 }
 
 /* ============================================
-   ABOUT SECTION
+   ABOUT SECTION - MINIMALISTA
    ============================================ */
 
 .about {
@@ -243,9 +259,10 @@ body {
 
 .about h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 60px;
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
 .about-content {
@@ -259,7 +276,7 @@ body {
     color: var(--text-light);
     margin-bottom: 20px;
     line-height: 1.8;
-    font-size: 1.05rem;
+    font-size: 1rem;
 }
 
 .stats {
@@ -273,19 +290,21 @@ body {
     padding: 30px;
     border-radius: var(--border-radius);
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-subtle);
     transition: var(--transition);
+    border-top: 3px solid var(--primary-color);
 }
 
 .stat-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: none;
+    box-shadow: var(--shadow-medium);
 }
 
 .stat-box h3 {
     color: var(--primary-color);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .stat-box p {
@@ -294,7 +313,7 @@ body {
 }
 
 /* ============================================
-   DESTINOS SECTION
+   DESTINOS SECTION - MINIMALISTA
    ============================================ */
 
 .destinos {
@@ -304,9 +323,10 @@ body {
 
 .destinos h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 60px;
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
 .destinos-grid {
@@ -319,15 +339,16 @@ body {
     background: var(--white);
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-subtle);
     transition: var(--transition);
     display: flex;
     flex-direction: column;
+    border: 1px solid #e0d5cc;
 }
 
 .destino-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    transform: none;
+    box-shadow: var(--shadow-medium);
 }
 
 .destino-image {
@@ -353,27 +374,27 @@ body {
 }
 
 .destino-image.destino-1 {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0D7377 0%, #14919B 100%);
 }
 
 .destino-image.destino-2 {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #14919B 0%, #1DB5BE 100%);
 }
 
 .destino-image.destino-3 {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #0D7377 0%, #14919B 100%);
 }
 
 .destino-image.destino-4 {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    background: linear-gradient(135deg, #F4D35E 0%, #EE964B 100%);
 }
 
 .destino-image.destino-5 {
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    background: linear-gradient(135deg, #14919B 0%, #F4D35E 100%);
 }
 
 .destino-image.destino-6 {
-    background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%);
+    background: linear-gradient(135deg, #EE964B 0%, #0D7377 100%);
 }
 
 .destino-card:hover .destino-image::before {
@@ -382,14 +403,16 @@ body {
 
 .destino-card h3 {
     padding: 20px 20px 10px;
-    color: var(--secondary-color);
-    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    font-weight: 600;
 }
 
 .destino-card p {
     padding: 0 20px;
     color: var(--text-light);
     flex-grow: 1;
+    font-size: 0.95rem;
 }
 
 .destino-card .btn {
@@ -398,19 +421,20 @@ body {
 }
 
 /* ============================================
-   ACTIVIDADES SECTION
+   ACTIVIDADES SECTION - MINIMALISTA
    ============================================ */
 
 .actividades {
     padding: 80px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0D7377 0%, #14919B 100%);
     color: var(--white);
 }
 
 .actividades h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 60px;
+    font-weight: 600;
 }
 
 .actividades-grid {
@@ -420,38 +444,40 @@ body {
 }
 
 .actividad-item {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     padding: 40px;
     border-radius: var(--border-radius);
     text-align: center;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     transition: var(--transition);
 }
 
 .actividad-item:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.12);
+    transform: none;
 }
 
 .actividad-icon {
-    font-size: 3rem;
+    font-size: 2.8rem;
     margin-bottom: 20px;
     display: inline-block;
 }
 
 .actividad-item h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 15px;
+    font-weight: 600;
 }
 
 .actividad-item p {
     opacity: 0.95;
+    font-size: 0.95rem;
 }
 
 /* ============================================
-   GALERÍA SECTION
+   GALERÍA SECTION - MINIMALISTA
    ============================================ */
 
 .galeria {
@@ -461,9 +487,10 @@ body {
 
 .galeria h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 60px;
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
 .galeria-grid {
@@ -488,7 +515,7 @@ body {
 }
 
 .galeria-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .galeria-overlay {
@@ -497,7 +524,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(13, 115, 119, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -511,17 +538,17 @@ body {
 
 .galeria-overlay p {
     color: var(--white);
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.3rem;
+    font-weight: 500;
 }
 
 /* ============================================
-   CTA SECTION
+   CTA SECTION - MINIMALISTA
    ============================================ */
 
 .cta {
     padding: 80px 0;
-    background: linear-gradient(135deg, #FF6B35, #FF8C42);
+    background: linear-gradient(135deg, #0D7377, #14919B);
     color: var(--white);
     text-align: center;
 }
@@ -574,11 +601,13 @@ body {
 
 .info-item h3 {
     margin-bottom: 5px;
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
 .info-item p {
     color: var(--text-light);
+    font-size: 0.95rem;
 }
 
 .contacto-form {
@@ -590,18 +619,19 @@ body {
 .contacto-form input,
 .contacto-form textarea {
     padding: 12px 15px;
-    border: 2px solid #E8E8E8;
+    border: 1px solid #ddd;
     border-radius: var(--border-radius);
     font-family: inherit;
     font-size: 1rem;
     transition: var(--transition);
+    background: var(--white);
 }
 
 .contacto-form input:focus,
 .contacto-form textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+    box-shadow: 0 0 0 3px rgba(13, 115, 119, 0.1);
 }
 
 .contacto-form button {
@@ -609,11 +639,11 @@ body {
 }
 
 /* ============================================
-   FOOTER
+   FOOTER - MINIMALISTA
    ============================================ */
 
 .footer {
-    background: var(--dark-bg);
+    background: #1a1a1a;
     color: var(--white);
     padding: 30px 0;
     text-align: center;
@@ -632,20 +662,20 @@ body {
 
 .social-links a {
     color: var(--white);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     transition: var(--transition);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: rgba(255, 107, 53, 0.2);
+    background: rgba(13, 115, 119, 0.2);
     border-radius: 50%;
 }
 
 .social-links a:hover {
     background: var(--primary-color);
-    transform: translateY(-3px);
+    transform: none;
 }
 
 /* ============================================

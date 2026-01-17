@@ -43,7 +43,7 @@ class SistemaAutenticacion {
     }
 
     // Registrar nuevo usuario
-    registrar(nombre, email, password, telefono = '') {
+    registrar(nombre, email, password, telefono = '', rol = 'cliente') {
         const usuarios = this.obtenerTodosUsuarios();
         
         // Verificar si el email ya existe
@@ -56,7 +56,7 @@ class SistemaAutenticacion {
             nombre,
             email,
             password, // En producción: encriptar
-            rol: 'cliente',
+            rol: rol,
             telefono,
             avatar: `https://via.placeholder.com/150?text=${nombre.charAt(0).toUpperCase()}`,
             fechaRegistro: new Date().toISOString()
@@ -288,71 +288,102 @@ function agregarEstilosAuth() {
         
         .modal-dialog {
             background: white;
-            border-radius: 12px;
-            padding: 30px;
+            border-radius: 16px;
+            padding: 36px;
             max-width: 400px;
             width: 90%;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(13, 115, 119, 0.15);
             animation: slideInDown 0.3s ease;
+            border: 1px solid rgba(13, 115, 119, 0.1);
         }
         
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #F4D35E;
         }
         
         .modal-header h2 {
             margin: 0;
-            color: #004E89;
+            color: #0D7377;
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
         }
         
         .modal-close {
             background: none;
             border: none;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
             color: #999;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: all 0.3s ease;
         }
         
         .modal-close:hover {
-            color: #FF6B35;
+            background: rgba(13, 115, 119, 0.1);
+            color: #0D7377;
         }
         
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #004E89;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #0D7377;
+            font-size: 0.95rem;
+            letter-spacing: -0.2px;
         }
         
-        .form-group input {
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 10px;
-            border: 2px solid #E8E8E8;
+            padding: 12px 14px;
+            border: 2px solid #e8e8e8;
             border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
+            font-size: 0.95rem;
+            color: #2a2a2a;
+            font-family: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
         }
         
-        .form-group input:focus {
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
-            border-color: #FF6B35;
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+            border-color: #0D7377;
+            box-shadow: 0 0 0 3px rgba(13, 115, 119, 0.1);
+            background: #fdfbf8;
         }
         
         .modal-footer {
-            margin-top: 20px;
+            margin-top: 28px;
         }
         
         .modal-footer button {
             width: 100%;
             margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.2px;
         }
         
         .modal-footer button:last-child {
